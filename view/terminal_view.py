@@ -96,10 +96,6 @@ def get_inputs(list_labels, title):
     return input_list
 
 
-    # your code
-
-    return inputs
-
 def get_choice(options):
     print_menu("Main menu",options, "Exit program")
     inputs = get_inputs(["Please enter a number: "], "")
