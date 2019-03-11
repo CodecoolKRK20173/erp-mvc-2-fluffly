@@ -97,11 +97,15 @@ def get_inputs(list_labels, title):
         list: List of data given by the user. Sample return:
             [<user_input_1>, <user_input_2>, <user_input_3>]
     """
-    inputs = []
+    
+    input_list = []
+    print(title)
+    for question in list_labels:
+        answer = input(question + " ")
+        input_list.append(answer)
 
-    # your code
+    return input_list
 
-    return inputs
 
 def get_choice(options):
     print_menu("Main menu",options, "Exit program")
