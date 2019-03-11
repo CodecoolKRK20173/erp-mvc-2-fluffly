@@ -10,7 +10,7 @@ from controller import common
 
 
 def run():
-
+    
     title = 'Main menu'
     options = ["Store manager",
                "Human resources manager",
@@ -22,6 +22,7 @@ def run():
     
     choice = None
     while choice != "0":
+        common.clear()
         choice = terminal_view.get_choice(title, options, exit_message)
         if choice == "1":
             store_controller.run()
