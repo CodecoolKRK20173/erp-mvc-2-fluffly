@@ -13,7 +13,7 @@ def run():
     Returns:
         None
     """
-    title = 'Main menu'
+    title = 'Store menu'
     options = ["Add new record to table",
                "Remove a record with a given id from the table.",
                "Updates specified record in the table.",
