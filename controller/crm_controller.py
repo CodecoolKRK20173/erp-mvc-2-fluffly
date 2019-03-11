@@ -35,7 +35,5 @@ def run():
             pass
         elif choice == "5":
             pass
-        elif choice == "6":
-            pass
         else:
             terminal_view.print_error_message("There is no such choice.")

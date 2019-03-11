@@ -105,7 +105,7 @@ def get_average_by_manufacturer(table, manufacturer):
 
     game_counter = 0
     manufacturer_counter = 0
-    
+
     for i in range(len(table)):
         if manufacturer in table[i][2]:
             game_counter += float(table[i][4])

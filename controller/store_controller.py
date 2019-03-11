@@ -21,9 +21,6 @@ def run():
                "How many different kinds of game are available of each manufacturer?",
                "What is the average amount of games in stock of a given manufacturer?"]
     exit_message = "Back to main menu"
-    
-    
-
 
     choice = None
     while choice != "0":
@@ -35,10 +32,10 @@ def run():
         elif choice == "3":
             pass
         elif choice == "4":
-            pass
-        elif choice == "5":
             store.get_counts_by_manufacturers(table)
-        elif choice == "6":
-            pass
+        elif choice == "5":
+            manufacturer = terminal_view.get_inputs(['Manufacturer'], 'Please select  a manufacturer :')
+            
+            store.get_average_by_manufacturer(table, manufacturer)
         else:
             terminal_view.print_error_message("There is no such choice.")
