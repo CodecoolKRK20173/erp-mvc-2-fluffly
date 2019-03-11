@@ -40,6 +40,17 @@ def print_result(result, label):
     # your code
 
 
+title = 'Main menu'
+list_options = ['Store manager',
+                'Human resources manager',
+                'Inventory manager',
+                'Accounting manager',
+                'Sales manager',
+                'Customer relationship management (CRM)',
+                'Exit program']
+exit_message = "Back to main menu"
+
+
 def print_menu(title, list_options, exit_message):
     """
     Displays a menu. Sample output:
@@ -61,7 +72,10 @@ def print_menu(title, list_options, exit_message):
         None: This function doesn't return anything it only prints to console.
     """
 
-    # your code
+    print('{}:'.format(title))
+    for i in range(len(list_options)):
+        print('{}({}) {}'.format('    ', i + 1, list_options[i]))
+    print('{}(0) {}'.format('    ', exit_message))
 
 
 def get_inputs(list_labels, title):
@@ -106,3 +120,13 @@ def print_error_message(message):
     """
 
     # your code
+
+    title = 'Main menu'
+    list_options = ['(1) Store manager',
+                    '(2) Human resources manager',
+                    '(3) Inventory manager',
+                    '(4) Accounting manager',
+                    '(5) Sales manager',
+                    '(6) Customer relationship management (CRM)',
+                    '(0) Exit program']
+    exit_message = "Back to main menu"
