@@ -13,16 +13,17 @@ def run():
     Returns:
         None
     """
-
+    title = 'Main menu'
     options = ["Add new record to table",
                "Remove a record with a given id from the table.",
                "Updates specified record in the table.",
                "Question: How many different kinds of game are available of each manufacturer?",
                "Question: What is the average amount of games in stock of a given manufacturer?"]
-
+    exit_message = "Back to main menu"
+    
     choice = None
     while choice != "0":
-        choice = terminal_view.get_choice(options)
+        choice = terminal_view.get_choice(title, options, exit_message)
         if choice == "1":
             pass
         elif choice == "2":

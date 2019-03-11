@@ -107,8 +107,8 @@ def get_inputs(list_labels, title):
     return input_list
 
 
-def get_choice(options):
-    print_menu("Main menu",options, "Exit program")
+def get_choice(title, options, exit_message):
+    print_menu(title, options, exit_message)
     inputs = get_inputs(["Please enter a number: "], "")
     return inputs[0]
 
@@ -123,14 +123,5 @@ def print_error_message(message):
         None: This function doesn't return anything it only prints to console.
     """
 
-    # your code
+    print('Error: {}'.format(message))
 
-    title = 'Main menu'
-    list_options = ['(1) Store manager',
-                    '(2) Human resources manager',
-                    '(3) Inventory manager',
-                    '(4) Accounting manager',
-                    '(5) Sales manager',
-                    '(6) Customer relationship management (CRM)',
-                    '(0) Exit program']
-    exit_message = "Back to main menu"
