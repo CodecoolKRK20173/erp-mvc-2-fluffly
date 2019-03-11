@@ -13,7 +13,9 @@ Data table structure:
 from model import data_manager
 from model import common
 
-table = data_manager.get_table_from_file('model/store/games_test.csv')
+
+def get_table():
+    return data_manager.get_table_from_file('model/store/games_test.csv')
 
 
 def add(table, record):

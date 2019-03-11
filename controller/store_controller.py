@@ -32,10 +32,16 @@ def run():
         elif choice == "3":
             pass
         elif choice == "4":
-            store.get_counts_by_manufacturers(table)
+
+            result = store.get_counts_by_manufacturers(store.data_manager.get_table_from_file('model/store/games_test.csv'))
+            print(result)
+            # terminal_view.print_result(result, "label")
         elif choice == "5":
-            manufacturer = terminal_view.get_inputs(['Manufacturer'], 'Please select  a manufacturer :')
+            manufacturer = terminal_view.get_inputs(['Manufacturer : '], 'Please select  a manufacturer :')
             
-            store.get_average_by_manufacturer(table, manufacturer)
+            result = store.get_average_by_manufacturer(store.data_manager.get_table_from_file('model/store/games_test.csv'), manufacturer)
+
+            terminal_view.print_result(result, "label")
+
         else:
             terminal_view.print_error_message("There is no such choice.")
