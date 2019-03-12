@@ -22,6 +22,13 @@ def print_table(table, title_list):
         None: This function doesn't return anything it only prints to console.
     """
 
+    print("/" + str(dash_length) + "\\")
+    print("|" + str(summ) + "|" + str(splitting[1]) + "|")
+    print("\\" + str(dash_length) + "/")
+
+
+
+
     # your goes code
 
 
@@ -86,14 +93,14 @@ def get_inputs(list_labels, title):
         list: List of data given by the user. Sample return:
             [<user_input_1>, <user_input_2>, <user_input_3>]
     """
-    
-    input_list = []
+
+    list = []
     print(title)
     for question in list_labels:
         answer = input(question + " ")
         input_list.append(answer)
 
-    return input_list
+    return list
 
 
     # your code

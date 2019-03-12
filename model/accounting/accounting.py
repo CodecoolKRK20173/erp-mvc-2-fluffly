@@ -27,7 +27,8 @@ def add(table, record):
     Returns:
         list: Table with a new record
     """
-    # your code
+
+    table.append(record)
 
     return table
 
@@ -43,8 +44,9 @@ def remove(table, id_):
     Returns:
         list: Table without specified record.
     """
-
-    # your code
+    
+    del table[int(id_)]
+    "dddddd"
 
     return table
 
@@ -61,8 +63,9 @@ def update(table, id_, record):
     Returns:
         list: table with updated record
     """
-
-    # your code
+    
+    remove(table, int(id_))
+    table.insert(int(id_), record)
 
     return table
 
@@ -80,6 +83,8 @@ def which_year_max(table):
     Returns:
         number
     """
+
+    
 
     # your code
 
