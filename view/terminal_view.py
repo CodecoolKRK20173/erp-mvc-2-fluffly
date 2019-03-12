@@ -41,20 +41,18 @@ def print_table(table, title_list):
     max_line_len = [(max(i)) for i in max_line_len]
     max_line = common.sum_position(max_line_len)
 
-    dashed_line = ("-" * int(max_line + 1 + len(title_list)))
-    head = [(title_list[q].rjust(max_line_len[q])+'|') for q in range(len(title_list))]
-    header = '|' + ''.join(head)
+    dashed_line = ("═" * int(max_line + 1 + len(title_list)))
+    head = [(title_list[q].rjust(max_line_len[q])+'│') for q in range(len(title_list))]
+    header = '│' + ''.join(head)
     table.pop(0)
     print(dashed_line)
     print(header)
     print(dashed_line)
     for i in table:
-        body_list = [(i[q].rjust(max_line_len[q])+'|') for q in range(len(i))]
-        body = '|' + ''.join(body_list)
+        body_list = [(i[q].rjust(max_line_len[q])+'│') for q in range(len(i))]
+        body = '│' + ''.join(body_list)
         print(body)
-    print(dashed_line)
-
-    
+    print(dashed_line)  
 
 
 def print_result(result, label):
@@ -69,7 +67,18 @@ def print_result(result, label):
         None: This function doesn't return anything it only prints to console.
     """
 
-    # your code
+    if isinstance(result, dict):
+        print('{0:>35}'.format(label))
+        to_print_a = [[i[0], i[1]] for i in result.items()]
+        to_print_b = [('{0:>35} : {1:>1}'.format(i[0], i[1])) for i in to_print_a]
+        [print(i) for i in to_print_b]
+
+    elif isinstance(result, list):
+        print('{0:>35}'.format(label))
+        to_print = result
+        [print(i) for i in to_print]
+    elif isinstance(result, str):
+        print('{} : {}'.format(label, result))
 
 
 def print_menu(title, list_options, exit_message):
@@ -132,6 +141,7 @@ def get_choice(title, options, exit_message):
     print_menu(title, options, exit_message)
     inputs = get_inputs(["Please enter a number: "], "")
     return inputs[0]
+
 
 def print_error_message(message):
     """
