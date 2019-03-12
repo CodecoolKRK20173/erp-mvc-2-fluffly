@@ -78,7 +78,19 @@ def get_oldest_person(table):
         list: A list of strings (name or names if there are two more with the same value)
     """
 
-    # your code
+    oldest_people = []
+    oldest_person_age = table[0][2]
+    
+    for line in table: 
+        if oldest_person_age > line[2]:
+            oldest_person_age = line[2]
+    
+    for line in table:
+        if line[2] == oldest_person_age:
+            oldest_people.append(line[1]) 
+
+    return oldest_people
+
 
 
 def get_persons_closest_to_average(table):
