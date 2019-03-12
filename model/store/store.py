@@ -14,6 +14,10 @@ from model import data_manager
 from model import common
 
 
+def get_table():
+    return data_manager.get_table_from_file('model/store/games_test.csv')
+
+
 def add(table, record):
     """
     Add new record to table
@@ -78,8 +82,15 @@ def get_counts_by_manufacturers(table):
     Returns:
          dict: A dictionary with this structure: { [manufacturer] : [count] }
     """
+    output = {}
 
-    # your code
+    for key in table:
+        if key[2] not in output.keys():
+            output[key[2]] = 1
+        else:
+            output[key[2]] += 1
+
+    return output
 
 
 def get_average_by_manufacturer(table, manufacturer):
@@ -94,4 +105,13 @@ def get_average_by_manufacturer(table, manufacturer):
          number
     """
 
-    # your code
+    game_counter = 0
+    manufacturer_counter = 0
+
+    for i in range(len(table)):
+        if manufacturer in table[i][2]:
+            game_counter += float(table[i][4])
+            manufacturer_counter += 1
+
+    aver = game_counter / manufacturer_counter
+    return round(aver, 2)

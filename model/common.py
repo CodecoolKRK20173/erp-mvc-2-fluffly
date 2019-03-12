@@ -22,3 +22,10 @@ def generate_random(table):
     # your code
 
     return generated
+
+
+def sum_position(table, table_index):
+
+    sum_pos = 0
+    for i in range(len(table)):
+        sum_pos += float(table[i][table_index])
