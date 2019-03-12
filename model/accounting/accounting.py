@@ -47,7 +47,6 @@ def remove(table, id_):
 
     del table[int(id_)]
 
-
     return table
 
 
@@ -83,10 +82,30 @@ def which_year_max(table):
     Returns:
         number
     """
+    years = []
+    year = table[0][3]
+    years.append(year)
 
-    
+    for line in table:
+        year = line[3]
+        if year not in years:
+            years.append(year)
 
-    # your code
+    dict_of_years = { i : 0 for i in years }
+
+    for line in table:
+        if line[3] in dict_of_years:
+            if line[4] == "in":
+                dict_of_years[line[3]] += int(line[5])
+            elif line[4] == "out":
+                dict_of_years[line[3]] -= int(line[5])
+
+    highest_profit = int(max(dict_of_years, key=lambda k: dict_of_years[k]))
+
+
+    return highest_profit
+
+
 
 
 def avg_amount(table, year):
@@ -100,5 +119,19 @@ def avg_amount(table, year):
     Returns:
         number
     """
+    sum_of_outcome = 0
+    sum_of_income = 0
+    items_count = 0
 
-    # your code
+    for line in table:
+        if int(line[3]) == year:
+            items_count += 1
+            if line[4] == "out":
+                sum_of_outcome += int(line[5])
+            elif line[4] == "in":
+                sum_of_income += int(line[5])
+        
+    profit = sum_of_income - sum_of_outcome
+    number = profit / items_count
+
+    return number
