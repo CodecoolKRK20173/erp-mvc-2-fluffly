@@ -1,5 +1,5 @@
 """ Terminal view module """
-
+from model import common
 
 def print_table(table, title_list):
     """
@@ -21,94 +21,40 @@ def print_table(table, title_list):
     Returns:
         None: This function doesn't return anything it only prints to console.
     """
+    table.insert(0, title_list)
+    
+    len_col = []
+    x = 0
+    for i in table:
+        len_col.append([])
+        for j in range(len(i)):
+            longest_name = len(i[j])
+            len_col[x].append(longest_name)
+        x += 1
 
-title_list = ["id", "title", "type", "name", "genre"]
-games_list = []
-with open("game_stat.txt") as games:
-        for line in games:
-            games_list.append(line.strip().split('\t'))
+    max_line_len = []
+    for i in range(len(title_list)):
+        max_line_len.append([])
+        for k in len_col:
+            max_line_len[i].append(k[i])
 
+    max_line_len = [(max(i)) for i in max_line_len]
+    max_line = common.sum_position(max_line_len)
 
+    dashed_line = ("-" * int(max_line + 1 + len(title_list)))
+    head = [(title_list[q].rjust(max_line_len[q])+'|') for q in range(len(title_list))]
+    header = '|' + ''.join(head)
+    table.pop(0)
+    print(dashed_line)
+    print(header)
+    print(dashed_line)
+    for i in table:
+        body_list = [(i[q].rjust(max_line_len[q])+'|') for q in range(len(i))]
+        body = '|' + ''.join(body_list)
+        print(body)
+    print(dashed_line)
 
-columns_count = 0
-for item in title_list:
-    columns_count += 1
-
-title_lenght = 0
-for title in title_list:
-    title_lenght += len(title)
-
-max_len = len(title_list[0])
-max_len2 = len(title_list[1])
-max_len3 = len(title_list[2])
-max_len4 = len(title_list[3])
-max_len5 = len(title_list[4])
-
-column_width = []
-x = int(0)
-
-for item in range(5):
-    for game_info in games_list:
-        len_item2 = len(game_info[item])
-        if len_item2 > max_len[item]:
-            max_len2 = len_item2
-    column_width.append(max_len2)
-
-print(column_width)
-
-'''
-
-
-for item in games_list:
-    len_item3 = len(item[2])
-    if len_item3 > max_len3:
-        max_len3 = len_item3
-column_width.append(max_len3)
-
-for item in games_list:
-    len_item4 = len(item[3])
-    if len_item4 > max_len4:
-        max_len4 = len_item4
-column_width.append(max_len4)
-
-for item in games_list:
-    len_item5 = len(item[4])
-    if len_item5 > max_len5:
-        max_len5 = len_item5
-column_width.append(max_len5)
-
-print(column_width)
-
-
-dash_length = "-" * max(column_width)
-
-print("/" + str(dash_length) + "\\")
-print("|" + " " * )
-
-print("|" + str(summ) + "|" + str(splitting[1]) + "|")
-print("\\" + str(dash_length) + "/")
-
-'''
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-    # your goes code
+    
 
 
 def print_result(result, label):
@@ -124,17 +70,6 @@ def print_result(result, label):
     """
 
     # your code
-
-
-title = 'Main menu'
-list_options = ['Store manager',
-                'Human resources manager',
-                'Inventory manager',
-                'Accounting manager',
-                'Sales manager',
-                'Customer relationship management (CRM)',
-                'Exit program']
-exit_message = "Back to main menu"
 
 
 def print_menu(title, list_options, exit_message):
@@ -184,13 +119,13 @@ def get_inputs(list_labels, title):
             [<user_input_1>, <user_input_2>, <user_input_3>]
     """
 
-    list = []
+    input_list = []
     print(title)
     for question in list_labels:
         answer = input(question + " ")
         input_list.append(answer)
 
-    return list
+    return input_list
 
 
 def get_choice(title, options, exit_message):

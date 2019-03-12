@@ -21,12 +21,14 @@ def run():
                "How many different kinds of game are available of each manufacturer?",
                "What is the average amount of games in stock of a given manufacturer?"]
     exit_message = "Back to main menu"
+    title_list = ["id", "title", "manufacturer", "price", "in_stock"]
+    table = store.data_manager.get_table_from_file('model/store/games.csv')
 
     choice = None
     while choice != "0":
         choice = terminal_view.get_choice(title, options, exit_message)
         if choice == "1":
-            pass
+            terminal_view.print_table(table, title_list)
         elif choice == "2":
             pass
         elif choice == "3":

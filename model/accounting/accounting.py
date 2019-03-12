@@ -44,9 +44,9 @@ def remove(table, id_):
     Returns:
         list: Table without specified record.
     """
-    
+
     del table[int(id_)]
-    "dddddd"
+
 
     return table
 
