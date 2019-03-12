@@ -21,8 +21,13 @@ def run():
                "Which items have not exceeded their durability yet?",
                "What are the average durability times for each manufacturer?"]
     exit_message = "Back to main menu"
+    title_list = ["id", "name", "manufacturer", "purchase_year", 'durability']
+    table = inventory.data_manager.get_table_from_file('model/inventory/inventory.csv')
+    terminal_view.print_table(table, title_list)
+
 
     choice = None
+    
     while choice != "0":
         choice = terminal_view.get_choice(title, options, exit_message)
         if choice == "1":

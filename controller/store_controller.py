@@ -23,12 +23,12 @@ def run():
     exit_message = "Back to main menu"
     title_list = ["id", "title", "manufacturer", "price", "in_stock"]
     table = store.data_manager.get_table_from_file('model/store/games.csv')
-
+    terminal_view.print_table(table, title_list)
     choice = None
     while choice != "0":
         choice = terminal_view.get_choice(title, options, exit_message)
         if choice == "1":
-            terminal_view.print_table(table, title_list)
+            pass
         elif choice == "2":
             pass
         elif choice == "3":

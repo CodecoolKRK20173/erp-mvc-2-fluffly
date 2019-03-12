@@ -22,6 +22,10 @@ def run():
                "Who is the closest to the average age?"]
     exit_message = "Back to main menu"
 
+    title_list = ["id", "name", "birth_year"]
+    table = hr.data_manager.get_table_from_file('model/hr/persons.csv')
+    terminal_view.print_table(table, title_list)
+
     choice = None
     while choice != "0":
         choice = terminal_view.get_choice(title, options, exit_message)

@@ -22,6 +22,10 @@ def run():
                "Which customers has subscribed to the newsletter?om_date < sale_date < to_date)"]
     exit_message = "Back to main menu"
 
+    title_list = ["id", "name", "email", "subscribed"]
+    table = crm.data_manager.get_table_from_file('model/crm/customers.csv')
+    terminal_view.print_table(table, title_list)
+
     choice = None
     while choice != "0":
         choice = terminal_view.get_choice(title, options, exit_message)

@@ -20,6 +20,9 @@ def run():
                "Which year has the highest profit? (profit = in - out)",
                "What is the average (per item) profit in a given year? [(profit)/(items count)]"]
     exit_message = "Back to main menu"
+    title_list = ["id", "month", "day", "year", 'type', 'durability']
+    table = accounting.data_manager.get_table_from_file('model/accounting/items.csv')
+    terminal_view.print_table(table, title_list)
 
     choice = None
     while choice != "0":
