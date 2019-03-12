@@ -23,9 +23,10 @@ def run():
     exit_message = "Back to main menu"
     title_list = ["id", "title", "manufacturer", "price", "in_stock"]
     table = store.data_manager.get_table_from_file('model/store/games.csv')
-    terminal_view.print_table(table, title_list)
+    # terminal_view.print_table(table, title_list)
     choice = None
     while choice != "0":
+        terminal_view.print_table(table, title_list)
         choice = terminal_view.get_choice(title, options, exit_message)
         if choice == "1":
             pass
@@ -37,12 +38,15 @@ def run():
             label = "kinds of game are available of each manufacturer"
             result = store.get_counts_by_manufacturers(store.data_manager.get_table_from_file('model/store/games_test.csv'))
             terminal_view.print_result(result, label)
+            common.exit_prompt()
+            common.clear()
         elif choice == "5":
             manufacturer = terminal_view.get_inputs(['Manufacturer : '], 'Please select  a manufacturer :')
             manufacturer = manufacturer[0]
             result = str(store.get_average_by_manufacturer(store.data_manager.get_table_from_file('model/store/games_test.csv'), manufacturer))
             label = "The average amount of games in stock of {} ".format(manufacturer)
             terminal_view.print_result(result, label)
-
+            common.exit_prompt()
+            common.clear()
         else:
             terminal_view.print_error_message("There is no such choice.")
