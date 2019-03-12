@@ -22,9 +22,88 @@ def print_table(table, title_list):
         None: This function doesn't return anything it only prints to console.
     """
 
-    print("/" + str(dash_length) + "\\")
-    print("|" + str(summ) + "|" + str(splitting[1]) + "|")
-    print("\\" + str(dash_length) + "/")
+title_list = ["id", "title", "type", "name", "genre"]
+games_list = []
+with open("game_stat.txt") as games:
+        for line in games:
+            games_list.append(line.strip().split('\t'))
+
+
+
+columns_count = 0
+for item in title_list:
+    columns_count += 1
+
+title_lenght = 0
+for title in title_list:
+    title_lenght += len(title)
+
+max_len = len(title_list[0])
+max_len2 = len(title_list[1])
+max_len3 = len(title_list[2])
+max_len4 = len(title_list[3])
+max_len5 = len(title_list[4])
+
+column_width = []
+x = int(0)
+
+for item in range(5):
+    for game_info in games_list:
+        len_item2 = len(game_info[item])
+        if len_item2 > max_len[item]:
+            max_len2 = len_item2
+    column_width.append(max_len2)
+
+print(column_width)
+
+'''
+
+
+for item in games_list:
+    len_item3 = len(item[2])
+    if len_item3 > max_len3:
+        max_len3 = len_item3
+column_width.append(max_len3)
+
+for item in games_list:
+    len_item4 = len(item[3])
+    if len_item4 > max_len4:
+        max_len4 = len_item4
+column_width.append(max_len4)
+
+for item in games_list:
+    len_item5 = len(item[4])
+    if len_item5 > max_len5:
+        max_len5 = len_item5
+column_width.append(max_len5)
+
+print(column_width)
+
+
+dash_length = "-" * max(column_width)
+
+print("/" + str(dash_length) + "\\")
+print("|" + " " * )
+
+print("|" + str(summ) + "|" + str(splitting[1]) + "|")
+print("\\" + str(dash_length) + "/")
+
+'''
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
 
 
 
