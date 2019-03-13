@@ -103,5 +103,29 @@ def get_persons_closest_to_average(table):
     Returns:
         list: list of strings (name or names if there are two more with the same value)
     """
+    sum_of_ages = 0
+    amount_of_persons = 0
+    ages_list = []
+    actual_year = 2019
+    closes_to_avg_age_results = []
 
-    # your code
+    for line in table:
+        ages_list.append(actual_year - int(line[2]))
+
+    for line in table:
+        age = 2019 - int(line[2])
+        sum_of_ages += age
+        amount_of_persons += 1
+    
+    average_age = sum_of_ages / amount_of_persons
+
+    find_closest_number = lambda average_age,ages_list:min(ages_list,key=lambda x:abs(x-average_age))
+
+    age_closest_to_avg_age = find_closest_number(average_age, ages_list)
+    year_closest_to_avg_was_born = actual_year - age_closest_to_avg_age
+
+    for line in table:
+        if line[2] == str(year_closest_to_avg_was_born):
+            closes_to_avg_age_results.append(line[1])
+
+    return closes_to_avg_age_results

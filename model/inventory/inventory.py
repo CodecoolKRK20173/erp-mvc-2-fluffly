@@ -78,8 +78,18 @@ def get_available_items(table):
     Returns:
         list: list of lists (the inner list contains the whole row with their actual data types)
     """
+    list_of_actual_items = []
+    actual_year = 2017
 
-    # your code
+    for line in table:
+        if (int(line[3]) + int(line[4])) >= actual_year:
+            list_of_actual_items.append(line)
+
+    for line in list_of_actual_items:
+        line[3] = int(line[3])
+        line[4] = int(line[4])
+
+    return list_of_actual_items
 
 
 def get_average_durability_by_manufacturers(table):
