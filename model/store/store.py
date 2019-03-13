@@ -41,16 +41,10 @@ def remove(table, id_):
     Returns:
         list: Table without specified record.
     """
-    ind = 0
-    for i in table:
-        if i[0] == id_:
-            return ind
-        else:
-            ind += 1
-    
-    table.pop(ind)
 
-    return table
+  
+
+    return common.remove(table, id_)
 
 
 def update(table, id_, record):

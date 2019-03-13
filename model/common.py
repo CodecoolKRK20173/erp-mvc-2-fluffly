@@ -70,3 +70,12 @@ def get_index_by_element(table, element):
             start = start + 1
 
     return start
+
+
+def remove(table, id_):
+
+    for i in table:
+        if i[0] == id_:
+            table.remove(i)
+
+    return table

@@ -43,7 +43,7 @@ def remove(table, id_):
 
     # your code
 
-    return table
+    return common.remove(table, id_)
 
 
 def update(table, id_, record):

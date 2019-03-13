@@ -45,9 +45,9 @@ def remove(table, id_):
         list: Table without specified record.
     """
 
-    del table[int(id_)]
+    
 
-    return table
+    return common.remove(table, id_)
 
 
 def update(table, id_, record):
