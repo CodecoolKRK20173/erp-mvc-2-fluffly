@@ -42,9 +42,6 @@ def generate_random(table):
                return i
                break'''  # jeszcze nie zrobione, zignorujcie
 
-    return generated
-
-
 def sum_position_by_ind(table, table_index):
 
     sum_pos = 0

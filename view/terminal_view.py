@@ -52,7 +52,7 @@ def print_table(table, title_list):
         body_list = [(i[q].rjust(max_line_len[q])+'│') for q in range(len(i))]
         body = '│' + ''.join(body_list)
         print(body)
-    print(dashed_line)  
+    print(dashed_line)
 
 
 def print_result(result, label):
@@ -74,7 +74,19 @@ def print_result(result, label):
         [print(i) for i in to_print_b]
     elif isinstance(result, list):
         if isinstance(result[0], list):
-            pass
+            print('{0:>20}'.format(label))
+            for i in result:
+                body_list = [str(q) for q in i]
+                print(body_list)
+                body_list = [(i[q].rjust(35)+'│') for q in i]
+                body = '│' + ''.join(body_list)
+                print(body)
+
+
+
+
+
+            [print(i) for i in result]
         else:
             print('{0:>20}'.format(label))
             [print('{0:>20}'.format(i)) for i in result]
