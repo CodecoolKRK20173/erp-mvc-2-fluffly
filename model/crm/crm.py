@@ -80,6 +80,23 @@ def get_longest_name_id(table):
         """
 
     # your code
+    file_name = "customers.csv"
+    longest_name = " "
+    with open(file_name, "r") as file:
+        lines = file.readlines()
+        table = [element.replace("\n", "").split(";") for element in lines]
+
+    for element in table:
+
+        customer_name = element[1]
+        if len(longest_name) < len(customer_name):
+            longest_name = customer_name
+            id_longest_name = element[0]
+    print(longest_name)  
+    print(id_longest_name)   
+
+
+get_longest_name_id()
 
 
 # the question: Which customers has subscribed to the newsletter?
@@ -96,3 +113,12 @@ def get_subscribed_emails(table):
         """
 
     # your code
+    subs_list = []
+    for item in table:
+        is_y_or_no = int(item[3])
+        if is_y_or_no == 1:
+            subs_list.append(item[2] + ";" + item[1])
+
+    return subs_list
+
+    print(get_subscribed_emails(get_table_from_file("customers.csv")))
