@@ -102,5 +102,27 @@ def get_average_durability_by_manufacturers(table):
     Returns:
         dict: a dictionary with this structure: { [manufacturer] : [avg] }
     """
+    list_of_manufacturers_names = []
 
-    # your code
+    for line in table: 
+        if line[2] not in list_of_manufacturers_names:
+            list_of_manufacturers_names.append(line[2])
+
+    dict_of_no_of_times_inthetable = { i : 0 for i in list_of_manufacturers_names }
+    dict_of_durability = { i : 0 for i in list_of_manufacturers_names }
+
+    for line in table:
+        if line[2] in dict_of_no_of_times_inthetable:
+            dict_of_no_of_times_inthetable[line[2]] += 1
+
+    for line in table:
+        if line[2] in dict_of_durability:
+            dict_of_durability[line[2]] += int(line[4])
+
+    dict_with_divided_values = {k: dict_of_durability[k] / dict_of_no_of_times_inthetable[k] for k in dict_of_no_of_times_inthetable if k in dict_of_durability}
+
+    for key, value in dict_with_divided_values.items():
+        if value.is_integer():
+            dict_with_divided_values[key] = int(value)
+
+    return dict_with_divided_values
