@@ -25,11 +25,11 @@ def run():
     table = inventory.data_manager.get_table_from_file('model/inventory/inventory.csv')
     terminal_view.print_table(table, title_list)
 
-
     choice = None
     
     while choice != "0":
         choice = terminal_view.get_choice(title, options, exit_message)
+        terminal_view.print_table(table, title_list)
         if choice == "1":
             pass
         elif choice == "2":
@@ -37,7 +37,11 @@ def run():
         elif choice == "3":
             pass
         elif choice == "4":
-            pass
+            label = "Which items have not exceeded their durability yet?"
+            result = inventory.get_available_items(table)
+            terminal_view.print_result(result, label)
+            common.exit_prompt()
+            common.clear()
         elif choice == "5":
             pass
         else:

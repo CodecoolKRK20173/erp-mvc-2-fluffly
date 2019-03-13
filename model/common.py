@@ -45,7 +45,7 @@ def generate_random(table):
     return generated
 
 
-def sum_position_by_index(table, table_index):
+def sum_position_by_ind(table, table_index):
 
     sum_pos = 0
     for i in range(len(table)):
