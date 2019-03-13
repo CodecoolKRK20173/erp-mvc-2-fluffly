@@ -79,12 +79,7 @@ def get_longest_name_id(table):
                 the last by alphabetical order of the names)
         """
 
-    # your code
-    file_name = "customers.csv"
     longest_name = " "
-    with open(file_name, "r") as file:
-        lines = file.readlines()
-        table = [element.replace("\n", "").split(";") for element in lines]
 
     for element in table:
 
@@ -112,7 +107,6 @@ def get_subscribed_emails(table):
             list: list of strings (where a string is like "email;name")
         """
 
-    # your code
     subs_list = []
     for item in table:
         is_y_or_no = int(item[3])
@@ -120,5 +114,3 @@ def get_subscribed_emails(table):
             subs_list.append(item[2] + ";" + item[1])
 
     return subs_list
-
-    print(get_subscribed_emails(get_table_from_file("customers.csv")))
