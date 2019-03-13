@@ -72,11 +72,12 @@ def print_result(result, label):
         to_print_a = [[i[0], i[1]] for i in result.items()]
         to_print_b = [('{0:>35} : {1:>1}'.format(i[0], i[1])) for i in to_print_a]
         [print(i) for i in to_print_b]
-
     elif isinstance(result, list):
-        print('{0:>35}'.format(label))
-        to_print = result
-        [print(i) for i in to_print]
+        if isinstance(result[0], list):
+            pass
+        else:
+            print('{0:>20}'.format(label))
+            [print('{0:>20}'.format(i)) for i in result]
     elif isinstance(result, str):
         print('{} : {}'.format(label, result))
 

@@ -36,14 +36,14 @@ def run():
             pass
         elif choice == "4":
             label = "kinds of game are available of each manufacturer"
-            result = store.get_counts_by_manufacturers(store.data_manager.get_table_from_file('model/store/games_test.csv'))
+            result = store.get_counts_by_manufacturers(table)
             terminal_view.print_result(result, label)
             common.exit_prompt()
             common.clear()
         elif choice == "5":
             manufacturer = terminal_view.get_inputs(['Manufacturer : '], 'Please select  a manufacturer :')
             manufacturer = manufacturer[0]
-            result = str(store.get_average_by_manufacturer(store.data_manager.get_table_from_file('model/store/games_test.csv'), manufacturer))
+            result = str(store.get_average_by_manufacturer(table, manufacturer))
             label = "The average amount of games in stock of {} ".format(manufacturer)
             terminal_view.print_result(result, label)
             common.exit_prompt()

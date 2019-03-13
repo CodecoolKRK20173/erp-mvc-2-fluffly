@@ -129,3 +129,4 @@ def get_persons_closest_to_average(table):
             closes_to_avg_age_results.append(line[1])
 
     return closes_to_avg_age_results
+    
