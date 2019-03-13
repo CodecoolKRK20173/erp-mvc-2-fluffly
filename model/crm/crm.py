@@ -40,9 +40,6 @@ def remove(table, id_):
     Returns:
         list: Table without specified record.
     """
-
-    # your code
-
     return common.remove(table, id_)
 
 
