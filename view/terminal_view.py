@@ -1,6 +1,7 @@
 """ Terminal view module """
 from model import common
 
+
 def print_table(table, title_list):
     """
     Prints table with data.
@@ -135,12 +136,28 @@ def get_inputs(list_labels, title):
         list: List of data given by the user. Sample return:
             [<user_input_1>, <user_input_2>, <user_input_3>]
     """
-
+    headers = ["id", "month", "day", "year", "subscribed", "birth_year", "purchase_year", "price", "in_stock"]
     input_list = []
     print(title)
     for question in list_labels:
-        answer = input(question + " ")
-        input_list.append(answer)
+        if question == headers[0]:
+            answer = common.generate_random()
+            input_list.append(answer)
+        elif question in headers[0:(len(headers)+1)]:
+            answer = input(question + " ")
+            if answer.isnumeric():
+                input_list.append(answer)
+            else:
+                command = True
+                while command:
+                    print('Please give a number.')
+                    answer = input(question + " ")
+                    if answer.isnumeric():
+                        command = False
+                input_list.append(answer)
+        else:
+            answer = input(question + " ")
+            input_list.append(answer)
 
     return input_list
 

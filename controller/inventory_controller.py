@@ -31,9 +31,13 @@ def run():
         choice = terminal_view.get_choice(title, options, exit_message)
         terminal_view.print_table(table, title_list)
         if choice == "1":
-            pass
+            record = terminal_view.get_inputs(title_list, 'Please add following informations :')
+            updated_table = inventory.add(table, record)
+            inventory.data_manager.write_table_to_file('model/inventory/inventory.csv', updated_table)
         elif choice == "2":
-            pass
+            id_ = terminal_view.get_inputs(['ID'], 'Please give ID to remove :')
+            updated_table = inventory.remove(table, id_[0])
+            inventory.data_manager.write_table_to_file('model/inventory/inventory.csv', updated_table)
         elif choice == "3":
             pass
         elif choice == "4":

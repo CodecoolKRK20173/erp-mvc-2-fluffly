@@ -41,7 +41,7 @@ def remove(table, id_):
         list: Table without specified record.
     """
 
-    # your code
+    table.append(record)
 
     return table
 

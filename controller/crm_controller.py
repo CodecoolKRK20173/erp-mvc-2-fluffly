@@ -27,12 +27,16 @@ def run():
 
     choice = None
     while choice != "0":
-        choice = terminal_view.get_choice(title, options, exit_message)
         terminal_view.print_table(table, title_list)
+        choice = terminal_view.get_choice(title, options, exit_message)
         if choice == "1":
-            pass
+            record = terminal_view.get_inputs(title_list, 'Please add following informations :')
+            updated_table = crm.add(table, record)
+            crm.data_manager.write_table_to_file('model/crm/customers.csv', updated_table)
         elif choice == "2":
-            pass
+            id_ = terminal_view.get_inputs(['ID'], 'Please give ID to remove :')
+            updated_table = crm.remove(table, id_[0])
+            crm.data_manager.write_table_to_file('model/crm/customers.csv', updated_table)
         elif choice == "3":
             pass
         elif choice == "4":

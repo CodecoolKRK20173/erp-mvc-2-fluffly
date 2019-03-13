@@ -27,9 +27,13 @@ def run():
     while choice != "0":
         choice = terminal_view.get_choice(title, options, exit_message)
         if choice == "1":
-            pass
+            record = terminal_view.get_inputs(title_list, 'Please add following informations :')
+            updated_table = sales.add(table, record)
+            sales.data_manager.write_table_to_file('model/sales/sales.csv', updated_table)
         elif choice == "2":
-            pass
+            id_ = terminal_view.get_inputs(['ID'], 'Please give ID to remove :')
+            updated_table = sales.remove(table, id_[0])
+            sales.data_manager.write_table_to_file('model/sales/sales.csv', updated_table)
         elif choice == "3":
             pass
         elif choice == "4":
