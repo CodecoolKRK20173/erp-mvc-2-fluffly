@@ -23,21 +23,25 @@ def run():
     exit_message = "Back to main menu"
     title_list = ["id", "name", "manufacturer", "purchase_year", 'durability']
     table = inventory.data_manager.get_table_from_file('model/inventory/inventory.csv')
-    terminal_view.print_table(table, title_list)
+    
 
     choice = None
     
     while choice != "0":
-        choice = terminal_view.get_choice(title, options, exit_message)
         terminal_view.print_table(table, title_list)
+        choice = terminal_view.get_choice(title, options, exit_message)
         if choice == "1":
             record = terminal_view.get_inputs(title_list, 'Please add following informations :')
             updated_table = inventory.add(table, record)
             inventory.data_manager.write_table_to_file('model/inventory/inventory.csv', updated_table)
+            common.exit_prompt()
+            common.clear()
         elif choice == "2":
             id_ = terminal_view.get_inputs(['ID'], 'Please give ID to remove :')
             updated_table = inventory.remove(table, id_[0])
             inventory.data_manager.write_table_to_file('model/inventory/inventory.csv', updated_table)
+            common.exit_prompt()
+            common.clear()
         elif choice == "3":
             pass
         elif choice == "4":

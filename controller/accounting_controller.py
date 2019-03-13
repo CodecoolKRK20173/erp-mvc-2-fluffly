@@ -33,10 +33,14 @@ def run():
             record = terminal_view.get_inputs(title_list, 'Please add following informations :')
             updated_table = accounting.add(table, record)
             accounting.data_manager.write_table_to_file('model/accounting/items.csv', updated_table)
+            common.exit_prompt()
+            common.clear()
         elif choice == "2":
             id_ = terminal_view.get_inputs(['ID'], 'Please give ID to remove :')
             updated_table = accounting.remove(table, id_[0])
             accounting.data_manager.write_table_to_file('model/accounting/items.csv', updated_table)
+            common.exit_prompt()
+            common.clear()
         elif choice == "3":
             pass
         elif choice == "4":

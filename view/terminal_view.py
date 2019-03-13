@@ -136,7 +136,8 @@ def get_inputs(list_labels, title):
         list: List of data given by the user. Sample return:
             [<user_input_1>, <user_input_2>, <user_input_3>]
     """
-    headers = ["id", "month", "day", "year", "subscribed", "birth_year", "purchase_year", "price", "in_stock"]
+    headers = ["id", "month", "day", "year", "subscribed",
+                "birth_year", "purchase_year", "price", "in_stock", "durability"]
     input_list = []
     print(title)
     for question in list_labels:
