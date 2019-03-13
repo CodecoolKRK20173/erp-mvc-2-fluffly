@@ -124,7 +124,7 @@ def avg_amount(table, year):
     items_count = 0
 
     for line in table:
-        if int(line[3]) == year:
+        if int(line[3]) == int(year):
             items_count += 1
             if line[4] == "out":
                 sum_of_outcome += int(line[5])

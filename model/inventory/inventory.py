@@ -126,3 +126,4 @@ def get_average_durability_by_manufacturers(table):
             dict_with_divided_values[key] = int(value)
 
     return dict_with_divided_values
+    

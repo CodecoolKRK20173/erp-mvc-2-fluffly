@@ -41,14 +41,14 @@ def run():
             pass
         elif choice == "4":
             label = "Which year has the highest profit?"
-            result = str(accounting.which_year_max(accounting.data_manager.get_table_from_file('model/accounting/items.csv')))
+            result = str(accounting.which_year_max(table))
             terminal_view.print_result(result, label)
             common.exit_prompt()
             common.clear()
         elif choice == "5":
             year = terminal_view.get_inputs(['year : '], 'Please give  a year :')
-            year = int(year[0])
-            result = str(accounting.avg_amount(accounting.data_manager.get_table_from_file('model/accounting/items.csv'), year))
+            year = year[0]
+            result = str(accounting.avg_amount(table, year))
             label = "the average (per item) profit in {} ".format(year)
             terminal_view.print_result(result, label)
             common.exit_prompt()

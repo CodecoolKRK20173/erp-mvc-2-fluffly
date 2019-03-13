@@ -75,18 +75,13 @@ def print_result(result, label):
     elif isinstance(result, list):
         if isinstance(result[0], list):
             print('{0:>20}'.format(label))
+            for i in range(len(result)):
+                for j in range(len(result[i])):
+                    result[i][j] = str(result[i][j])
             for i in result:
-                body_list = [str(q) for q in i]
-                print(body_list)
-                body_list = [(i[q].rjust(35)+'│') for q in i]
-                body = '│' + ''.join(body_list)
+                body_list = [('{0:^21}-'.format(i[q])) for q in range(len(i))]
+                body = '-' + ''.join(body_list)
                 print(body)
-
-
-
-
-
-            [print(i) for i in result]
         else:
             print('{0:>20}'.format(label))
             [print('{0:>20}'.format(i)) for i in result]
