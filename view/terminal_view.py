@@ -138,6 +138,8 @@ def get_inputs(list_labels, title):
     """
     headers = ["ID", "MONTH", "DAY", "YEAR", "SUBSCRIBED",
                 "BIRTH YEAR", "PURCHASE YEAR", "PRICE", "IN STOCK", "DURABILITY"]
+
+    head = ['TYPE']
     input_list = []
     print(title)
     for question in list_labels:
@@ -154,6 +156,18 @@ def get_inputs(list_labels, title):
                     print('Please give a number.')
                     answer = input(question + " ")
                     if answer.isnumeric():
+                        command = False
+                input_list.append(answer)
+        elif question in head[0]:
+            answer = input(question + " ")
+            if answer in ['in', 'out']:
+                input_list.append(answer)
+            else:
+                command = True
+                while command:
+                    print('Please give in/out.')
+                    answer = input(question + " ")
+                    if answer in ['in', 'out']:
                         command = False
                 input_list.append(answer)
         else:

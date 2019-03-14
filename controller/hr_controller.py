@@ -38,7 +38,7 @@ def run():
             common.clear()
         elif choice == "2":
             id_ = terminal_view.get_inputs(['Id'], 'Please give ID to remove :')
-            updated_table = hr.remove(table, id_[0])
+            updated_table = hr.remove(table, id_)
             hr.data_manager.write_table_to_file('model/hr/persons.csv', updated_table)
             common.exit_prompt()
             common.clear()
