@@ -81,13 +81,6 @@ def get_longest_name_id(table):
     for element in table:
 
         customer_name = element[1]
-<<<<<<< HEAD
-        if len(customer_name) >= len(longest_name):
-            if customer_name > longest_name:
-                longest_name = customer_name
-                id_longest_name = element[0]
-    return(id_longest_name)
-=======
         if len(longest_name) < len(customer_name):
             longest_name = customer_name
             id_longest_name = element[0]
@@ -95,7 +88,6 @@ def get_longest_name_id(table):
         return id_longest_name
 
 
->>>>>>> 5746bcd55da24579c06a684a39112d2d3b2b0e61
 
 
 # the question: Which customers has subscribed to the newsletter?
