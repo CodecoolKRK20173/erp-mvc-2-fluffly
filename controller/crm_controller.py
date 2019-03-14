@@ -22,7 +22,7 @@ def run():
                "Which customers has subscribed to the newsletter?"]
     exit_message = "Back to main menu"
 
-    title_list = ["id", "name", "email", "subscribed"]
+    title_list = ["ID", "NAME", "EMAIL", "SUBSCRIBED"]
     table = crm.data_manager.get_table_from_file('model/crm/customers.csv')
 
     choice = None
@@ -44,13 +44,13 @@ def run():
         elif choice == "3":
             pass
         elif choice == "4":
-            label = "What is the id of the customer with the longest name?"
+            label = "The id of the customer with the longest name is: "
             result = crm.get_longest_name_id(table)
             terminal_view.print_result(result, label)
             common.exit_prompt()
             common.clear()
         elif choice == "5":
-            label = "Which customers has subscribed to the newsletter?"
+            label = "Customers that has been subscribed to the newsletter: "
             result = crm.get_subscribed_emails(table)
             terminal_view.print_result(result, label)
             common.exit_prompt()

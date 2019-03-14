@@ -21,7 +21,7 @@ def run():
                "How many different kinds of game are available of each manufacturer?",
                "What is the average amount of games in stock of a given manufacturer?"]
     exit_message = "Back to main menu"
-    title_list = ["id", "title", "manufacturer", "price", "in_stock"]
+    title_list = ["ID", "TITLE", "MANUFACTURER", "PRICE", "IN STOCK"]
     table = store.data_manager.get_table_from_file('model/store/games.csv')
 
     choice = None
@@ -43,13 +43,13 @@ def run():
         elif choice == "3":
             pass
         elif choice == "4":
-            label = "kinds of game are available of each manufacturer"
+            label = "The kinds of game that are available of each manufacturer: "
             result = store.get_counts_by_manufacturers(table)
             terminal_view.print_result(result, label)
             common.exit_prompt()
             common.clear()
         elif choice == "5":
-            manufacturer = terminal_view.get_inputs(['Manufacturer : '], 'Please select  a manufacturer :')
+            manufacturer = terminal_view.get_inputs(['Manufacturer : '], 'Please select a manufacturer :')
             manufacturer = manufacturer[0]
             result = str(store.get_average_by_manufacturer(table, manufacturer))
             label = "The average amount of games in stock of {} ".format(manufacturer)

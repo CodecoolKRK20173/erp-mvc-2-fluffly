@@ -91,8 +91,6 @@ def get_lowest_price_item_id(table):
         if line[2] == lowest_price:
             list_of_lowest_price_names.append(line[0])
 
-    
-
     return list_of_lowest_price_names[0]
 
 

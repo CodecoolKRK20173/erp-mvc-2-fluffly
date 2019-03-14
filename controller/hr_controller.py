@@ -22,7 +22,7 @@ def run():
                "Who is the closest to the average age?"]
     exit_message = "Back to main menu"
 
-    title_list = ["id", "name", "birth_year"]
+    title_list = ["iIDd", "NAME", "BIRTH YEAR"]
     table = hr.data_manager.get_table_from_file('model/hr/persons.csv')
     # terminal_view.print_table(table, title_list)
 
@@ -46,13 +46,13 @@ def run():
             pass
         elif choice == "4":
             result = hr.get_oldest_person(table)
-            label = "Who is the oldest person?"
+            label = "The oldest person is: "
             terminal_view.print_result(result, label)
             common.exit_prompt()
             common.clear()
         elif choice == "5":
             result = hr.get_persons_closest_to_average(table)
-            label = "Who is the closest to the average age?"
+            label = "The closest to the average age is person: ?"
             terminal_view.print_result(result, label)
             common.exit_prompt()
             common.clear()

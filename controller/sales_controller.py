@@ -20,7 +20,7 @@ def run():
                "Question: What is the id of the item that was sold for the lowest price?",
                "Which items are sold between two given dates? (from_date < sale_date < to_date)"]
     exit_message = "Back to main menu"
-    title_list = ["id", "title", "price", "month", 'day', 'year']
+    title_list = ["ID", "TITLE", "PRICE", "MONTH", 'DAY', 'YEAR']
     table = sales.data_manager.get_table_from_file('model/sales/sales.csv')
     
     choice = None
