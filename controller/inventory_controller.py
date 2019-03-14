@@ -51,6 +51,10 @@ def run():
             common.exit_prompt()
             common.clear()
         elif choice == "5":
-            pass
+            label = "What are the average durability times for each manufacturer?"
+            result = inventory.get_average_durability_by_manufacturers(table)
+            terminal_view.print_result(result, label)
+            common.exit_prompt()
+            common.clear()
         else:
             terminal_view.print_error_message("There is no such choice.")
