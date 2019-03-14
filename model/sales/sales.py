@@ -106,11 +106,9 @@ def get_items_sold_between(table, month_from, day_from, year_from, month_to, day
         month_to (int)
         day_to (int)
         year_to (int)
-
     Returns:
         list: list of lists (the filtered table)
-    """
-    
+   """ 
     filtered_table = []
 
     month_from = int(month_from[0])
@@ -135,5 +133,3 @@ def get_items_sold_between(table, month_from, day_from, year_from, month_to, day
         line[5] = int(line[5])
 
     return filtered_table
-
-
