@@ -37,7 +37,7 @@ def run():
             common.exit_prompt()
             common.clear()
         elif choice == "2":
-            id_ = terminal_view.get_inputs(['ID'], 'Please give ID to remove :')
+            id_ = terminal_view.get_inputs(['Id'], 'Please give ID to remove :')
             updated_table = inventory.remove(table, id_[0])
             inventory.data_manager.write_table_to_file('model/inventory/inventory.csv', updated_table)
             common.exit_prompt()

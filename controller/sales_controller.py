@@ -34,7 +34,7 @@ def run():
             common.exit_prompt()
             common.clear()
         elif choice == "2":
-            id_ = terminal_view.get_inputs(['ID'], 'Please give ID to remove :')
+            id_ = terminal_view.get_inputs(['Id'], 'Please give ID to remove :')
             updated_table = sales.remove(table, id_[0])
             sales.data_manager.write_table_to_file('model/sales/sales.csv', updated_table)
             common.exit_prompt()
