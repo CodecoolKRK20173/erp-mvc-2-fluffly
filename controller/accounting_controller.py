@@ -42,7 +42,11 @@ def run():
             common.exit_prompt()
             common.clear()
         elif choice == "3":
-            pass
+            id_ = terminal_view.get_inputs(['ID'], 'Please give ID of  remove :')
+            updated_table = accounting.update(table, id_, record)
+            accounting.data_manager.write_table_to_file('model/accounting/items.csv', updated_table)
+            common.exit_prompt()
+            common.clear()
         elif choice == "4":
             label = "Which year has the highest profit?"
             result = str(accounting.which_year_max(table))
