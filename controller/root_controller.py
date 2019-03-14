@@ -18,7 +18,7 @@ def run():
                "Accounting manager",
                "Sales manager",
                "Customer Relationship Management (CRM)"]
-    exit_message = "Back to main menu"
+    exit_message = "Exit program"
     
     choice = None
     while choice != "0":

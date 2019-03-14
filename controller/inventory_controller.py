@@ -3,6 +3,7 @@ from view import terminal_view
 from model.inventory import inventory
 from controller import common
 
+
 def run():
     """
     Starts this module and displays its menu.
@@ -23,7 +24,6 @@ def run():
     exit_message = "Back to main menu"
     title_list = ["ID", "NAME", "MANUFACTURER", "PURCHASE YEAR", 'DURABILITY']
     table = inventory.data_manager.get_table_from_file('model/inventory/inventory.csv')
-    
 
     choice = None
     

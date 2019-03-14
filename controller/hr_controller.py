@@ -14,7 +14,7 @@ def run():
     """
 
     common.clear()
-    title = 'HR menu'
+    title = 'Human Resources menu'
     options = ["Add new record to table",
                "Remove a record with a given id from the table.",
                "Updates specified record in the table.",
@@ -22,7 +22,7 @@ def run():
                "Who is the closest to the average age?"]
     exit_message = "Back to main menu"
 
-    title_list = ["iIDd", "NAME", "BIRTH YEAR"]
+    title_list = ["ID", "NAME", "BIRTH YEAR"]
     table = hr.data_manager.get_table_from_file('model/hr/persons.csv')
     # terminal_view.print_table(table, title_list)
 
