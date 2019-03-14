@@ -136,10 +136,9 @@ def get_inputs(list_labels, title):
         list: List of data given by the user. Sample return:
             [<user_input_1>, <user_input_2>, <user_input_3>]
     """
-    headers = ["ID", "MONTH", "DAY", "YEAR", "SUBSCRIBED",
-                "BIRTH YEAR", "PURCHASE YEAR", "PRICE", "IN STOCK", "DURABILITY"]
+    headers = ["ID", "MONTH", "DAY", "YEAR", "BIRTH YEAR", "PURCHASE YEAR", "PRICE", "IN STOCK", "DURABILITY"]
 
-    head = ['TYPE']
+    head = ['TYPE', "SUBSCRIBED"]
     input_list = []
     print(title)
     for question in list_labels:
@@ -168,6 +167,18 @@ def get_inputs(list_labels, title):
                     print('Please give in/out.')
                     answer = input(question + " ")
                     if answer in ['in', 'out']:
+                        command = False
+                input_list.append(answer)
+        elif question in head[1]:
+            answer = input(question + " ")
+            if answer in ['0', '1']:
+                input_list.append(answer)
+            else:
+                command = True
+                while command:
+                    print('Please give 0/1.')
+                    answer = input(question + " ")
+                    if answer in ['0', '1']:
                         command = False
                 input_list.append(answer)
         else:
