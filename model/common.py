@@ -4,7 +4,7 @@ implement commonly used functions here
 import random
 
 
-def generate_random(table=None):
+def generate_random(table=):
     """
     Generates random and unique string. Used for id/key generation:
          - at least 2 special characters (except: ';'), 2 number, 2 lower and 2 upper case letter
@@ -18,7 +18,6 @@ def generate_random(table=None):
     """
 
     generated = ''
-
     number1 = random.randint(1, 10)
     number2 = random.randint(1, 10)
     letter1 = random.choice('abcdefghijklmnopqrstuvwxyz')
@@ -28,9 +27,13 @@ def generate_random(table=None):
     special_character1 = random.choice('!#$%&*+-<?@^_~')
     special_character2 = random.choice('!#$%&*+-<?@^_~')
     id_raw = (str(number1) + str(number2) + special_character1 + letter1 + capital_letter1 + letter2 + special_character2 + capital_letter2)
-    id_finall = ''.join(random.sample(id_raw, len(id_raw)))
-    return id_finall
+    id_finall = ''.join(random.sample(id_raw, len(id_raw)))            
+    
+    for line in table:
+        if id_finall == line[0]:
+            return generate_random(table)
 
+    return id_finall
 
 def sum_position(table):
     sum_pos = 0
