@@ -117,7 +117,7 @@ def print_menu(title, list_options, exit_message):
     print('{}(0) {}'.format('    ', exit_message))
 
 
-def get_inputs(list_labels, title):
+def get_inputs(list_labels, title, table=None):
     """
     Gets list of inputs from the user.
     Sample call:
@@ -143,7 +143,7 @@ def get_inputs(list_labels, title):
     print(title)
     for question in list_labels:
         if question == headers[0]:
-            answer = common.generate_random()
+            answer = common.generate_random(table)
             input_list.append(answer)
         elif question in headers[0:(len(headers)+1)]:
             answer = input(question + " ")
@@ -188,9 +188,9 @@ def get_inputs(list_labels, title):
     return input_list
 
 
-def get_choice(title, options, exit_message):
+def get_choice(title, options, exit_message, table=None):
     print_menu(title, options, exit_message)
-    inputs = get_inputs(["Please enter a number: "], "")
+    inputs = get_inputs(["Please enter a number: "], "", table)
     return inputs[0]
 
 

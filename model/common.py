@@ -4,7 +4,7 @@ implement commonly used functions here
 import random
 
 
-def generate_random(table=):
+def generate_random(table):
     """
     Generates random and unique string. Used for id/key generation:
          - at least 2 special characters (except: ';'), 2 number, 2 lower and 2 upper case letter

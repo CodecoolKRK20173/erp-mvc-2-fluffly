@@ -31,19 +31,19 @@ def run():
         terminal_view.print_table(table, title_list)
         choice = terminal_view.get_choice(title, options, exit_message)
         if choice == "1":
-            record = terminal_view.get_inputs(title_list, 'Please add following informations :')
+            record = terminal_view.get_inputs(title_list, 'Please add following informations :', table)
             updated_table = hr.add(table, record)
             hr.data_manager.write_table_to_file('model/hr/persons.csv', updated_table)
             common.exit_prompt()
             common.clear()
         elif choice == "2":
-            id_ = terminal_view.get_inputs(['Id'], 'Please give ID to remove :')
+            id_ = terminal_view.get_inputs(['Id'], 'Please give ID to remove :', table)
             updated_table = hr.remove(table, id_)
             hr.data_manager.write_table_to_file('model/hr/persons.csv', updated_table)
             common.exit_prompt()
             common.clear()
         elif choice == "3":
-            id_ = terminal_view.get_inputs(['Id'], 'Please give ID of changed line :')
+            id_ = terminal_view.get_inputs(['Id'], 'Please give ID of changed line :', table)
             record = terminal_view.get_inputs(title_list, 'Please add following informations :')
             updated_table = hr.update(table, id_, record)
             hr.data_manager.write_table_to_file('model/hr/persons.csv', updated_table)
