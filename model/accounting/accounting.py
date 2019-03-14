@@ -45,8 +45,6 @@ def remove(table, id_):
         list: Table without specified record.
     """
 
-    
-
     return common.remove(table, id_)
 
 
@@ -63,8 +61,8 @@ def update(table, id_, record):
         list: table with updated record
     """
     
-    remove(table, int(id_))
-    table.insert(int(id_), record)
+    common.remove(table, id_)
+    table = add(table, record)
 
     return table
 

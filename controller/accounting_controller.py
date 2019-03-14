@@ -1,7 +1,7 @@
 # everything you'll need is imported:
-from view import terminal_view
-from model.accounting import accounting
 from controller import common
+from model.accounting import accounting
+from view import terminal_view
 
 
 def run():
@@ -21,9 +21,8 @@ def run():
                "Which year has the highest profit? (profit = in - out)",
                "What is the average (per item) profit in a given year? [(profit)/(items count)]"]
     exit_message = "Back to main menu"
-    title_list = ["id", "month", "day", "year", 'type', 'durability']
+    title_list = ["ID", "MONTH", "DAY", "YEAR", 'TYPE', 'DURABILITY']
     table = accounting.data_manager.get_table_from_file('model/accounting/items.csv')
-    # terminal_view.print_table(table, title_list)
 
     choice = None
     while choice != "0":
@@ -37,12 +36,13 @@ def run():
             common.clear()
         elif choice == "2":
             id_ = terminal_view.get_inputs(['Id'], 'Please give ID to remove :')
-            updated_table = accounting.remove(table, id_[0])
+            updated_table = accounting.remove(table, id_)
             accounting.data_manager.write_table_to_file('model/accounting/items.csv', updated_table)
             common.exit_prompt()
             common.clear()
         elif choice == "3":
-            id_ = terminal_view.get_inputs(['Id'], 'Please give ID of  remove :')
+            id_ = terminal_view.get_inputs(['Id'], 'Please give ID of changed line :')
+            record = terminal_view.get_inputs(title_list, 'Please add following informations :')
             updated_table = accounting.update(table, id_, record)
             accounting.data_manager.write_table_to_file('model/accounting/items.csv', updated_table)
             common.exit_prompt()

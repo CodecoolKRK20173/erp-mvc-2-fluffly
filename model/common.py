@@ -60,7 +60,7 @@ def get_index_by_element(table, element):
 def remove(table, id_):
 
     for i in table:
-        if i[0] == id_:
+        if i[0] == id_[0]:
             table.remove(i)
 
     return table

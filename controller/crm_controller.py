@@ -37,12 +37,17 @@ def run():
             common.clear()
         elif choice == "2":
             id_ = terminal_view.get_inputs(['Id'], 'Please give ID to remove :')
-            updated_table = crm.remove(table, id_[0])
+            updated_table = crm.remove(table, id_)
             crm.data_manager.write_table_to_file('model/crm/customers.csv', updated_table)
             common.exit_prompt()
             common.clear()
         elif choice == "3":
-            pass
+            id_ = terminal_view.get_inputs(['Id'], 'Please give ID of changed line :')
+            record = terminal_view.get_inputs(title_list, 'Please add following informations :')
+            updated_table = crm.update(table, id_, record)
+            crm.data_manager.write_table_to_file('model/crm/customers.csv', updated_table)
+            common.exit_prompt()
+            common.clear()
         elif choice == "4":
             label = "The id of the customer with the longest name is: "
             result = crm.get_longest_name_id(table)

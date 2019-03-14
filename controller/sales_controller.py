@@ -35,12 +35,17 @@ def run():
             common.clear()
         elif choice == "2":
             id_ = terminal_view.get_inputs(['Id'], 'Please give ID to remove :')
-            updated_table = sales.remove(table, id_[0])
+            updated_table = sales.remove(table, id_)
             sales.data_manager.write_table_to_file('model/sales/sales.csv', updated_table)
             common.exit_prompt()
             common.clear()
         elif choice == "3":
-            pass
+            id_ = terminal_view.get_inputs(['Id'], 'Please give ID of changed line :')
+            record = terminal_view.get_inputs(title_list, 'Please add following informations :')
+            updated_table = sales.update(table, id_, record)
+            sales.data_manager.write_table_to_file('model/sales/sales.csv', updated_table)
+            common.exit_prompt()
+            common.clear()
         elif choice == "4":
             label = "What is the id of the item that was sold for the lowest price?"
             result = str(sales.get_lowest_price_item_id(table))

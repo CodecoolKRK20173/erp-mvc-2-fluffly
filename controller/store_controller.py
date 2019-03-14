@@ -36,12 +36,17 @@ def run():
             common.clear()
         elif choice == "2":
             id_ = terminal_view.get_inputs(['Id'], 'Please give ID to remove :')
-            updated_table = store.remove(table, id_[0])
+            updated_table = store.remove(table, id_)
             store.data_manager.write_table_to_file('model/store/games.csv', updated_table)
             common.exit_prompt()
             common.clear()
         elif choice == "3":
-            pass
+            id_ = terminal_view.get_inputs(['Id'], 'Please give ID of changed line :')
+            record = terminal_view.get_inputs(title_list, 'Please add following informations :')
+            updated_table = store.update(table, id_, record)
+            store.data_manager.write_table_to_file('model/store/games.csv', updated_table)
+            common.exit_prompt()
+            common.clear()
         elif choice == "4":
             label = "The kinds of game that are available of each manufacturer: "
             result = store.get_counts_by_manufacturers(table)
