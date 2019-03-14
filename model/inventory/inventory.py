@@ -42,7 +42,8 @@ def remove(table, id_):
         list: Table without specified record.
     """
 
-    # your code
+    common.remove(table, id_)
+    table = add(table, record)
 
     return common.remove(table, id_)
 

@@ -43,7 +43,12 @@ def run():
             common.exit_prompt()
             common.clear()
         elif choice == "3":
-            pass
+            id_ = terminal_view.get_inputs(['Id'], 'Please give ID of changed line :')
+            record = terminal_view.get_inputs(title_list, 'Please add following informations :')
+            updated_table = hr.update(table, id_, record)
+            hr.data_manager.write_table_to_file('model/hr/persons.csv', updated_table)
+            common.exit_prompt()
+            common.clear()
         elif choice == "4":
             result = hr.get_oldest_person(table)
             label = "The oldest person is: "
