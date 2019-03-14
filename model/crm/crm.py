@@ -24,7 +24,7 @@ def add(table, record):
     Returns:
         list: Table with a new record
     """
-    # your code
+    table.append(record)
 
     return table
 
@@ -40,10 +40,7 @@ def remove(table, id_):
     Returns:
         list: Table without specified record.
     """
-
-    # your code
-
-    return table
+    return common.remove(table, id_)
 
 
 def update(table, id_, record):
@@ -84,11 +81,21 @@ def get_longest_name_id(table):
     for element in table:
 
         customer_name = element[1]
+<<<<<<< HEAD
         if len(customer_name) >= len(longest_name):
             if customer_name > longest_name:
                 longest_name = customer_name
                 id_longest_name = element[0]
     return(id_longest_name)
+=======
+        if len(longest_name) < len(customer_name):
+            longest_name = customer_name
+            id_longest_name = element[0]
+
+        return id_longest_name
+
+
+>>>>>>> 5746bcd55da24579c06a684a39112d2d3b2b0e61
 
 
 # the question: Which customers has subscribed to the newsletter?

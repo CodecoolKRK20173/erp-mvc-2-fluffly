@@ -1,6 +1,7 @@
 """ Terminal view module """
 from model import common
 
+
 def print_table(table, title_list):
     """
     Prints table with data.
@@ -52,7 +53,7 @@ def print_table(table, title_list):
         body_list = [(i[q].rjust(max_line_len[q])+'│') for q in range(len(i))]
         body = '│' + ''.join(body_list)
         print(body)
-    print(dashed_line)  
+    print(dashed_line)
 
 
 def print_result(result, label):
@@ -74,7 +75,14 @@ def print_result(result, label):
         [print(i) for i in to_print_b]
     elif isinstance(result, list):
         if isinstance(result[0], list):
-            pass
+            print('{0:>20}'.format(label))
+            for i in range(len(result)):
+                for j in range(len(result[i])):
+                    result[i][j] = str(result[i][j])
+            for i in result:
+                body_list = [('{0:^21}-'.format(i[q])) for q in range(len(i))]
+                body = '-' + ''.join(body_list)
+                print(body)
         else:
             print('{0:>20}'.format(label))
             [print('{0:>20}'.format(i)) for i in result]
@@ -128,12 +136,29 @@ def get_inputs(list_labels, title):
         list: List of data given by the user. Sample return:
             [<user_input_1>, <user_input_2>, <user_input_3>]
     """
-
+    headers = ["id", "month", "day", "year", "subscribed",
+                "birth_year", "purchase_year", "price", "in_stock", "durability"]
     input_list = []
     print(title)
     for question in list_labels:
-        answer = input(question + " ")
-        input_list.append(answer)
+        if question == headers[0]:
+            answer = common.generate_random()
+            input_list.append(answer)
+        elif question in headers[0:(len(headers)+1)]:
+            answer = input(question + " ")
+            if answer.isnumeric():
+                input_list.append(answer)
+            else:
+                command = True
+                while command:
+                    print('Please give a number.')
+                    answer = input(question + " ")
+                    if answer.isnumeric():
+                        command = False
+                input_list.append(answer)
+        else:
+            answer = input(question + " ")
+            input_list.append(answer)
 
     return input_list
 
