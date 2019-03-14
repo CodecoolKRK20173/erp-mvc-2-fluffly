@@ -60,5 +60,5 @@ def run():
             terminal_view.print_result(result, label)
             common.exit_prompt()
             common.clear()
-        else:
+        elif choice != 0:
             terminal_view.print_error_message("There is no such choice.")
