@@ -76,16 +76,27 @@ def get_longest_name_id(table):
                 the last by alphabetical order of the names)
         """
 
-    longest_name = " "
+    longest_name = 0
+    longest_names_list = []
+    alphabetically_ordered_names_list = []
 
-    for element in table:
 
-        customer_name = element[1]
-        if len(longest_name) < len(customer_name):
-            longest_name = customer_name
-            id_longest_name = element[0]
+    for line in table:
+        if len(line[1]) > longest_name:
+            longest_name = len(line[1])
 
-        return id_longest_name
+    for line in table:
+        if len(line[1]) == longest_name:
+            longest_names_list.append([line[1], line[0]])
+
+    for name in range(len(longest_names_list)-1,0,-1):
+        for i in range(name):
+            if longest_names_list[i] > longest_names_list[i+1]:
+                temp = longest_names_list[i]
+                longest_names_list[i] = longest_names_list[i+1]
+                longest_names_list[i+1] = temp
+
+    return longest_names_list[-1][-1]
 
 
 
