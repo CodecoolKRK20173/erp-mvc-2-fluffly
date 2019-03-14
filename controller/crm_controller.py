@@ -14,7 +14,7 @@ def run():
     """
 
     common.clear()
-    title = 'CRM menu'
+    title = 'Custom Relationship Mmanager menu'
     options = ["Add new record to table",
                "Remove a record with a given id from the table.",
                "Updates specified record in the table.",
