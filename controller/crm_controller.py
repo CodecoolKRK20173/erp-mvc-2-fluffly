@@ -19,25 +19,41 @@ def run():
                "Remove a record with a given id from the table.",
                "Updates specified record in the table.",
                "What is the id of the customer with the longest name?",
-               "Which customers has subscribed to the newsletter?om_date < sale_date < to_date)"]
+               "Which customers has subscribed to the newsletter?"]
     exit_message = "Back to main menu"
 
     title_list = ["id", "name", "email", "subscribed"]
     table = crm.data_manager.get_table_from_file('model/crm/customers.csv')
-    terminal_view.print_table(table, title_list)
 
     choice = None
     while choice != "0":
+        terminal_view.print_table(table, title_list)
         choice = terminal_view.get_choice(title, options, exit_message)
         if choice == "1":
-            pass
+            record = terminal_view.get_inputs(title_list, 'Please add following informations :')
+            updated_table = crm.add(table, record)
+            crm.data_manager.write_table_to_file('model/crm/customers.csv', updated_table)
+            common.exit_prompt()
+            common.clear()
         elif choice == "2":
-            pass
+            id_ = terminal_view.get_inputs(['ID'], 'Please give ID to remove :')
+            updated_table = crm.remove(table, id_[0])
+            crm.data_manager.write_table_to_file('model/crm/customers.csv', updated_table)
+            common.exit_prompt()
+            common.clear()
         elif choice == "3":
             pass
         elif choice == "4":
-            pass
+            label = "What is the id of the customer with the longest name?"
+            result = crm.get_longest_name_id(table)
+            terminal_view.print_result(result, label)
+            common.exit_prompt()
+            common.clear()
         elif choice == "5":
-            pass
+            label = "Which customers has subscribed to the newsletter?"
+            result = crm.get_subscribed_emails(table)
+            terminal_view.print_result(result, label)
+            common.exit_prompt()
+            common.clear()
         else:
             terminal_view.print_error_message("There is no such choice.")

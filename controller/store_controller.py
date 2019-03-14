@@ -23,15 +23,23 @@ def run():
     exit_message = "Back to main menu"
     title_list = ["id", "title", "manufacturer", "price", "in_stock"]
     table = store.data_manager.get_table_from_file('model/store/games.csv')
-    # terminal_view.print_table(table, title_list)
+
     choice = None
     while choice != "0":
         terminal_view.print_table(table, title_list)
         choice = terminal_view.get_choice(title, options, exit_message)
         if choice == "1":
-            pass
+            record = terminal_view.get_inputs(title_list, 'Please add following informations :')
+            updated_table = store.add(table, record)
+            store.data_manager.write_table_to_file('model/store/games.csv', updated_table)
+            common.exit_prompt()
+            common.clear()
         elif choice == "2":
-            pass
+            id_ = terminal_view.get_inputs(['ID'], 'Please give ID to remove :')
+            updated_table = store.remove(table, id_[0])
+            store.data_manager.write_table_to_file('model/store/games.csv', updated_table)
+            common.exit_prompt()
+            common.clear()
         elif choice == "3":
             pass
         elif choice == "4":

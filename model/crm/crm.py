@@ -24,7 +24,7 @@ def add(table, record):
     Returns:
         list: Table with a new record
     """
-    # your code
+    table.append(record)
 
     return table
 
@@ -40,10 +40,7 @@ def remove(table, id_):
     Returns:
         list: Table without specified record.
     """
-
-    # your code
-
-    return table
+    return common.remove(table, id_)
 
 
 def update(table, id_, record):
