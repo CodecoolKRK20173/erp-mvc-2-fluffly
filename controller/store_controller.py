@@ -42,7 +42,7 @@ def run():
             common.clear()
         elif choice == "3":
             id_ = terminal_view.get_inputs(['Id'], 'Please give ID of changed line :', table)
-            record = terminal_view.get_inputs(title_list, 'Please add following informations :')
+            record = terminal_view.get_inputs(title_list, 'Please add following informations :', table)
             updated_table = store.update(table, id_, record)
             store.data_manager.write_table_to_file('model/store/games.csv', updated_table)
             common.exit_prompt()

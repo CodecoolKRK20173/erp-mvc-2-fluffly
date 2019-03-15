@@ -112,12 +112,6 @@ def get_items_sold_between(table, month_from, day_from, year_from, month_to, day
    """ 
     filtered_table = []
 
-    month_from = int(month_from[0])
-    day_from = int(day_from[0])  
-    year_from = int(year_from[0])
-    month_to = int(month_to[0])
-    day_to = int(day_to[0])
-    year_to = int(year_to[0])
 
     start_time_range = (int(month_from) * 31 + int(day_from) + int(year_from) * 365)
     end_time_range = (int(month_to) * 31 + int(day_to) + int(year_to) * 365)

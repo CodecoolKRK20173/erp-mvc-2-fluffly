@@ -43,7 +43,7 @@ def run():
             common.clear()
         elif choice == "3":
             id_ = terminal_view.get_inputs(['Id'], 'Please give ID of changed line :', table)
-            record = terminal_view.get_inputs(title_list, 'Please add following informations :')
+            record = terminal_view.get_inputs(title_list, 'Please add following informations :', table)
             updated_table = crm.update(table, id_, record)
             crm.data_manager.write_table_to_file('model/crm/customers.csv', updated_table)
             common.exit_prompt()
@@ -62,3 +62,5 @@ def run():
             common.clear()
         elif choice != 0:
             terminal_view.print_error_message("There is no such choice.")
+        common.exit_prompt()
+        common.clear()
