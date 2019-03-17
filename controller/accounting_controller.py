@@ -62,5 +62,5 @@ def run():
             common.exit_prompt()
             common.clear()
         elif choice != 0:
-            terminal_view.print_error_message("There is no such choice.")
+            terminal_view.print_error_message("There is no such choice.  ")
 
